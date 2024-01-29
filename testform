@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Template</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            transform: rotateX(45deg);
+        }
+
+        #watermark {
+            height: 500px;
+            width: 500px;
+            background-position: 0 0;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #watermark img {
+            width: 100%;
+            opacity: 0.3;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .container .header {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 40px;
+
+        }
+
+        .container .header #stateFile,
+        .container .header #localRegistration {
+            font-size: 14px;
+            border-top: 2px solid;
+        }
+
+        .container .header #titleHeader {
+            font-size: 24px;
+            font-weight: 800;
+            width: 26rem;
+            word-wrap: break-word;
+        }
+
+        .container .header #titleHeader span {
+            font-weight: 500;
+            font-size: medium;
+        }
+
+        .container #grid {
+            display: grid;
+            grid-template-columns: auto;
+            padding: 10px;
+        }
+
+        .container #grid>div {
+            background-color: rgb(255, 255, 255);
+            border: 1px solid;
+            border-left: unset;
+            border-right: unset;
+            border-bottom: unset;
+        }
+
+        .container #grid>div:last-child {
+            border-bottom: 1px solid;
+        }
+
+        .container #grid #child {
+            display: grid;
+            align-items: center;
+        }
+
+        .container #grid #child .grid1 {
+            display: flex;
+            flex-direction: row;
+            border-left: 1px solid;
+            border-right: 1px solid;
+            justify-content: space-between;
+            font-size: 12px;
+            padding: 0px 15px 30px 15px;
+        }
+
+        .container #grid #child .grid2 {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            text-align: left;
+            padding-bottom: 30px;
+        }
+
+        .container #grid #child .grid2>div {
+            font-size: 12px;
+            border: 1px solid;
+            border-bottom: unset;
+            border-right: unset;
+            padding: 15px;
+            height: 100%;
+        }
+
+        .container #grid #child .grid2>div:last-child {
+            border-right: 1px solid;
+        }
+
+        .container #grid #place {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            text-align: left;
+            padding-bottom: 30px;
+            row-gap: 30px;
+        }
+
+        .container #grid #place>div {
+            font-size: 12px;
+            border: 1px solid;
+            border-top: unset;
+            border-right: unset;
+            padding: 15px;
+            height: 100%;
+        }
+
+        .container #grid #place>div:last-child {
+            border-right: 1px solid;
+        }
+
+        .container #grid #mother {
+            display: grid;
+            text-align: left;
+        }
+
+        .container #grid #mother .grid1 {
+            display: grid;
+            grid-template-columns: auto auto;
+            padding-bottom: 30px;
+            row-gap: 30px;
+        }
+
+        .container #grid #mother .grid1>div {
+            font-size: 12px;
+            border: 1px solid;
+            border-top: unset;
+            border-right: unset;
+            padding: 15px;
+            height: 100%;
+        }
+
+        .container #grid #mother .grid1>div:last-child {
+            border-right: 1px solid;
+        }
+
+        .container #grid #mother .grid2 {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            padding-bottom: 30px;
+            row-gap: 30px;
+        }
+
+        .container #grid #mother .grid2>div {
+            font-size: 12px;
+            border: 1px solid;
+            border-bottom: unset;
+            border-right: unset;
+            padding: 15px;
+            height: 100%;
+        }
+
+        .container #grid #mother .grid2>div:last-child {
+            border-right: 1px solid;
+        }
+
+        .container #grid #father {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            text-align: left;
+            padding-bottom: 30px;
+            row-gap: 30px;
+        }
+
+        .container #grid #father>div {
+            font-size: 12px;
+            border: 1px solid;
+            border-top: unset;
+            border-right: unset;
+            padding: 15px;
+            height: 100%;
+        }
+
+        .container #grid #father>div:last-child {
+            border-right: 1px solid;
+        }
+
+        .container #grid #formant {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            text-align: left;
+            padding-bottom: 30px;
+            row-gap: 30px;
+        }
+
+        .container #grid #formant>div {
+            font-size: 12px;
+            border: 1px solid;
+            border-top: unset;
+            border-right: unset;
+            padding: 15px;
+            height: 100%;
+        }
+
+        .container #grid #formant>div:last-child {
+            border-right: 1px solid;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="watermark">
+        <img src="https://t3.ftcdn.net/jpg/03/00/13/54/360_F_300135469_m4XasEVAQaOx1veTb63DN0HA9sfuS5A4.jpg"
+            alt="..." />
+    </div>
+    <div class="container">
+        <div class="header">
+            <div id="stateFile">
+                <p>STATE FILE NUMBER</p>
+            </div>
+            <div id="titleHeader">
+                <p>CERTIFICATE OF LIVE BIRTH UNITED STATES OF AMERICA<br /><span>USE BLACK INK ONLY</span></p>
+            </div>
+            <div id="localRegistration">
+                <p>LOCAL REGISTRATION NUMBER</p>
+            </div>
+        </div>
+
+        <div class="mainTable">
+            <div id="grid">
+                <div id="child">
+                    <div class="grid1">
+                        <p>1. CHILD NAME (First)</p>
+                        <p>(Middle)</p>
+                        <p>(Last)</p>
+                    </div>
+                    <div class="grid2">
+                        <div>2. SEX</div>
+                        <div>3(a). PLURALITY-Single, Twin, Triplet, etc. (Specify)</div>
+                        <div>3(b). IF NOT SINGLE BIRTH-First, Second, Third, etc. (Specify)</div>
+                        <div>4(a). DATE OF BIRTH(Month, Day, Year)</div>
+                    </div>
+
+                </div>
+                <div id="place">
+                    <div>5(a). HOSPITAL NAME (If not hospital, give Street and Number)</div>
+                    <div>5(b). CITY, VILLAGE, OR TOWNSHIP OF BIRTH</div>
+                    <div>5(c). COUNTRY OF BIRTH</div>
+
+                </div>
+                <div id="mother">
+                    <div class="grid1">
+                        <div>6(a). MOTHERS CURRENT LEGAL NAME (First, Middle, Last)</div>
+                        <div>6(b). MOTHERS FULL NAME BEFORE FIRST MARRIAGE</div>
+                    </div>
+                    <div class="grid2">
+                        <div>6(c). STATE OF BIRTH - NAME COUNTRY IF NOT USA</div>
+                        <div>6(d). DATE OF BIRTH (Month, Day, Year)</div>
+                        <div>6(e). RESIDENCE - CITY, VILLAGE OR TOWNSHIP</div>
+                        <div>6(f). COUNTRY OF BIRTH</div>
+                    </div>
+
+
+                </div>
+                <div id="father">
+                    <div>7(a). FATHERS CURRENT LEGAL NAME (First, Middle, Last)</div>
+                    <div>7(b). STATE OF BIRTH - NAME COUNTRY IF NOT USA</div>
+                    <div>7(c). DATE OF BIRTH</div>
+                </div>
+                <div id="formant">
+                    <div>8(a). I CERTIFY THAT THIS INFORMATION PROVIDED IS CORRECT TO THE BEST OF MY KNOWLEDGE AND
+                        BELIEF.</div>
+                    <div>8(b). THE PARENT(S) REQUEST THAT INFORMATION BE RELEASED TO THE SOCIAL SECURITY ADMIN...</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
