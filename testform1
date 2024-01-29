@@ -6,28 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificate Template</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
         body {
-            display: flex;
-            justify-content: center;
-            transform: rotateX(45deg);
+            position: fixed;
+            font-family: monospace;
+            max-width: 120vh; 
+            top: 50%; 
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
         }
 
         #watermark {
-            height: 500px;
-            width: 500px;
-            background-position: 0 0;
-            background-repeat: no-repeat;
-            position: absolute;
-            top: 30%;
-            left: 30%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            position: fixed; 
+            top: 50%; 
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 0.2;
+            pointer-events: none;
         }
 
         #watermark img {
             width: 100%;
-            opacity: 0.3;
+            height: 100%;
         }
 
         .container {
@@ -68,8 +74,13 @@
             padding: 10px;
         }
 
+        .container #grid #grid-container {
+            display: grid;
+            grid-template-columns: 8rem auto;
+            align-items: center;
+        }
+
         .container #grid>div {
-            background-color: rgb(255, 255, 255);
             border: 1px solid;
             border-left: unset;
             border-right: unset;
@@ -92,7 +103,8 @@
             border-right: 1px solid;
             justify-content: space-between;
             font-size: 12px;
-            padding: 0px 15px 30px 15px;
+            padding: 15px;
+            padding-bottom: 3rem;
         }
 
         .container #grid #child .grid2 {
@@ -228,7 +240,7 @@
 
 <body>
     <div id="watermark">
-        <img src="https://t3.ftcdn.net/jpg/03/00/13/54/360_F_300135469_m4XasEVAQaOx1veTb63DN0HA9sfuS5A4.jpg"
+        <img src="https://www.freestock.com/450/freestock_318613094.jpg"
             alt="..." />
     </div>
     <div class="container">
@@ -246,49 +258,65 @@
 
         <div class="mainTable">
             <div id="grid">
-                <div id="child">
-                    <div class="grid1">
-                        <p>1. CHILD NAME (First)</p>
-                        <p>(Middle)</p>
-                        <p>(Last)</p>
-                    </div>
-                    <div class="grid2">
-                        <div>2. SEX</div>
-                        <div>3(a). PLURALITY-Single, Twin, Triplet, etc. (Specify)</div>
-                        <div>3(b). IF NOT SINGLE BIRTH-First, Second, Third, etc. (Specify)</div>
-                        <div>4(a). DATE OF BIRTH(Month, Day, Year)</div>
-                    </div>
+                <div id="grid-container">
+                    <div>CHILD</div>
+                    <div id="child">
+                        <div class="grid1">
+                            <p>1. CHILD NAME (First)</p>
+                            <p>(Middle)</p>
+                            <p>(Last)</p>
+                        </div>
+                        <div class="grid2">
+                            <div>2. SEX</div>
+                            <div>3(a). PLURALITY-Single, Twin, Triplet, etc. (Specify)</div>
+                            <div>3(b). IF NOT SINGLE BIRTH-First, Second, Third, etc. (Specify)</div>
+                            <div>4(a). DATE OF BIRTH(Month, Day, Year)</div>
+                        </div>
 
-                </div>
-                <div id="place">
-                    <div>5(a). HOSPITAL NAME (If not hospital, give Street and Number)</div>
-                    <div>5(b). CITY, VILLAGE, OR TOWNSHIP OF BIRTH</div>
-                    <div>5(c). COUNTRY OF BIRTH</div>
-
-                </div>
-                <div id="mother">
-                    <div class="grid1">
-                        <div>6(a). MOTHERS CURRENT LEGAL NAME (First, Middle, Last)</div>
-                        <div>6(b). MOTHERS FULL NAME BEFORE FIRST MARRIAGE</div>
                     </div>
-                    <div class="grid2">
-                        <div>6(c). STATE OF BIRTH - NAME COUNTRY IF NOT USA</div>
-                        <div>6(d). DATE OF BIRTH (Month, Day, Year)</div>
-                        <div>6(e). RESIDENCE - CITY, VILLAGE OR TOWNSHIP</div>
-                        <div>6(f). COUNTRY OF BIRTH</div>
+                </div>
+                <div id="grid-container">
+                    <div>PLACE</div>
+                    <div id="place">
+                        <div>5(a). HOSPITAL NAME (If not hospital, give Street and Number)</div>
+                        <div>5(b). CITY, VILLAGE, OR TOWNSHIP OF BIRTH</div>
+                        <div>5(c). COUNTRY OF BIRTH</div>
+
                     </div>
-
-
                 </div>
-                <div id="father">
-                    <div>7(a). FATHERS CURRENT LEGAL NAME (First, Middle, Last)</div>
-                    <div>7(b). STATE OF BIRTH - NAME COUNTRY IF NOT USA</div>
-                    <div>7(c). DATE OF BIRTH</div>
+
+                <div id="grid-container">
+                    <div>MOTHER</div>
+                    <div id="mother">
+                        <div class="grid1">
+                            <div>6(a). MOTHERS CURRENT LEGAL NAME (First, Middle, Last)</div>
+                            <div>6(b). MOTHERS FULL NAME BEFORE FIRST MARRIAGE</div>
+                        </div>
+                        <div class="grid2">
+                            <div>6(c). STATE OF BIRTH - NAME COUNTRY IF NOT USA</div>
+                            <div>6(d). DATE OF BIRTH (Month, Day, Year)</div>
+                            <div>6(e). RESIDENCE - CITY, VILLAGE OR TOWNSHIP</div>
+                            <div>6(f). COUNTRY OF BIRTH</div>
+                        </div>
+                    </div>
                 </div>
-                <div id="formant">
-                    <div>8(a). I CERTIFY THAT THIS INFORMATION PROVIDED IS CORRECT TO THE BEST OF MY KNOWLEDGE AND
-                        BELIEF.</div>
-                    <div>8(b). THE PARENT(S) REQUEST THAT INFORMATION BE RELEASED TO THE SOCIAL SECURITY ADMIN...</div>
+                <div id="grid-container">
+                    <div>FATHER</div>
+                    <div id="father">
+                        <div>7(a). FATHERS CURRENT LEGAL NAME (First, Middle, Last)</div>
+                        <div>7(b). STATE OF BIRTH - NAME COUNTRY IF NOT USA</div>
+                        <div>7(c). DATE OF BIRTH</div>
+                    </div>
+                </div>
+
+                <div id="grid-container">
+                    <div>FORMANT</div>
+                    <div id="formant">
+                        <div>8(a). I CERTIFY THAT THIS INFORMATION PROVIDED IS CORRECT TO THE BEST OF MY KNOWLEDGE AND
+                            BELIEF.</div>
+                        <div>8(b). THE PARENT(S) REQUEST THAT INFORMATION BE RELEASED TO THE SOCIAL SECURITY ADMIN...
+                        </div>
+                    </div>
                 </div>
 
             </div>
