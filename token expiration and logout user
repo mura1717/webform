@@ -1,0 +1,148 @@
+// Token generation (simple example)
+function generateToken() {
+    return 'token_' + Math.random().toString(36).substr(2);
+}
+
+// Save token to localStorage
+function saveToken(token) {
+    localStorage.setItem('auth_token', token);
+}
+
+// Remove token from localStorage (logout)
+function removeToken() {
+    localStorage.removeItem('auth_token');
+}
+
+// Set unique identifier for the tab using sessionStorage
+function setTabIdentifier() {
+    if (!sessionStorage.getItem('tab_id')) {
+        sessionStorage.setItem('tab_id', 'tab_' + Math.random().toString(36).substr(2));
+    }
+}
+
+// Handle the logic for distinguishing between first and second tabs
+function handleWindow() {
+    const existingToken = localStorage.getItem('auth_token');
+    const currentTabId = sessionStorage.getItem('tab_id');
+    
+    if (existingToken) {
+        // Warn the first window via storage event and treat this as the second window
+        alert('Second window detected. Logging out the first window.');
+        
+        // Inform the first window
+        localStorage.setItem('second_tab_opened', currentTabId);
+
+        // Handle logout or other actions for the first tab here
+    } else {
+        // This is the first window, generate a token
+        const newToken = generateToken();
+        saveToken(newToken);
+        console.log('First window opened, token generated:', newToken);
+    }
+}
+
+// Listen for storage changes (synchronization between tabs)
+window.addEventListener('storage', (event) => {
+    if (event.key === 'second_tab_opened' && event.newValue) {
+        // Another tab (second tab) is opened, log out the first tab
+        alert('You have been logged out because another tab was opened.');
+        removeToken();  // Clear the token (logout)
+        window.location.reload();  // Simulate logout by reloading the page
+    }
+});
+
+// Initialize on window load
+window.onload = function() {
+    // Set the unique identifier for this tab
+    setTabIdentifier();
+
+    // Handle the window (determine if first or second tab)
+    handleWindow();
+};
+
+
+((((((((((((
+
+
+// Token generation (simple example)
+function generateToken() {
+    return 'token_' + Math.random().toString(36).substr(2);
+}
+
+// Save token to localStorage
+function saveToken(token) {
+    localStorage.setItem('auth_token', token);
+}
+
+// Remove token from localStorage (logout)
+function removeToken() {
+    localStorage.removeItem('auth_token');
+}
+
+// Set unique identifier for the tab using sessionStorage
+function setTabIdentifier() {
+    if (!sessionStorage.getItem('tab_id')) {
+        sessionStorage.setItem('tab_id', 'tab_' + Math.random().toString(36).substr(2));
+    }
+}
+
+// Handle the logic for distinguishing between first and second tabs
+function handleWindow() {
+    const existingToken = localStorage.getItem('auth_token');
+    const currentTabId = sessionStorage.getItem('tab_id');
+    
+    if (existingToken) {
+        // Treat this as the second window and notify the first window
+        console.log('Second window detected.');
+        
+        // Notify the first tab by setting a flag in localStorage
+        localStorage.setItem('second_tab_opened', currentTabId);
+    } else {
+        // This is the first window, generate a token
+        const newToken = generateToken();
+        saveToken(newToken);
+        console.log('First window opened, token generated:', newToken);
+    }
+}
+
+// Warn and handle logout for the first window
+function warnAndLogoutFirstWindow() {
+    // Display a warning on the page (you can make this a UI element)
+    const warningDiv = document.createElement('div');
+    warningDiv.innerHTML = `
+        <div style="background-color: red; color: white; padding: 10px; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;">
+            You have been logged out because another window was opened.
+        </div>
+    `;
+    document.body.appendChild(warningDiv);
+    
+    // Optionally, log out the user after warning
+    removeToken();  // Clear the token
+    setTimeout(() => {
+        window.location.reload();  // Simulate a logout by reloading the page or redirect to a logout page
+    }, 5000);  // Give the user a few seconds to read the message
+}
+
+// Listen for storage changes (synchronization between tabs)
+window.addEventListener('storage', (event) => {
+    if (event.key === 'second_tab_opened' && event.newValue) {
+        // Automatically warn and log out the first window
+        warnAndLogoutFirstWindow();
+    }
+});
+
+// Initialize on window load
+window.onload = function() {
+    // Set the unique identifier for this tab
+    setTabIdentifier();
+
+    // Handle the window (determine if first or second tab)
+    handleWindow();
+};
+
+
+
+
+
+
+
